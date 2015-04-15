@@ -1,0 +1,14 @@
+{
+  "name": "xdcc-sessions",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Session handling app for xdcc",
+  "scripts": {
+    "test": "echo \"Error: there is no active test configuration for now\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yuyuu/xdcc-sessions.git"
+  },
+  "author": "Vincent Tertre"
+}
