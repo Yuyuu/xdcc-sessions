@@ -14,7 +14,7 @@ module.exports = function (grunt) {
   grunt.registerTask("test", ["jshint", "mochaTest:console"]);
   grunt.registerTask("cover", ["istanbul"]);
   grunt.registerTask("coverage", ["test", "cover"]);
-  grunt.registerTask("default", ["dev"]);
+  grunt.registerTask("default", ["jshint", "mochaTest:console", "watch"]);
 
   function loadConfig(path) {
     var glob = require("glob");
