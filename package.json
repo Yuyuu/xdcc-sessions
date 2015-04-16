@@ -36,9 +36,7 @@
     "jshint-stylish": "^1.0.1",
     "matchdep": "^0.3.0",
     "mocha": "^2.2.4",
-    "phantomjs": "^1.9.16",
     "sinon": "^1.14.1",
-    "sinon-chai": "^2.7.0",
-    "watch": "^0.16.0"
+    "sinon-chai": "^2.7.0"
   }
 }
