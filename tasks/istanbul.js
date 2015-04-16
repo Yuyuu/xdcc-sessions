@@ -8,7 +8,7 @@ module.exports = function (grunt) {
   grunt.registerTask("istanbul", function () {
     spawnSync(
       binDir + "/istanbul",
-      ["cover", binDir + "/_mocha", "--", "--reporter", "dot", "--recursive", "spec"],
+      ["cover", binDir + "/_mocha", "--", "--reporter", "spec", "--recursive", "spec"],
       {stdio: "inherit", encoding: "UTF-8"}
     );
   });

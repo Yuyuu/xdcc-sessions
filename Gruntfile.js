@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask("test", ["jshint", "mochaTest:console"]);
   grunt.registerTask("cover", ["istanbul"]);
-  grunt.registerTask("check", ["test", "cover"]);
+  grunt.registerTask("check", ["jshint", "cover"]);
   grunt.registerTask("default", ["jshint", "mochaTest:console", "watch"]);
 
   function loadConfig(path) {
