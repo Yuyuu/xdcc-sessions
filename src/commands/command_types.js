@@ -1,7 +1,7 @@
 "use strict";
 
 var commandTypes = {
-  authenticate: "COMMAND_AUTHENTICATE"
+  findUser: "COMMAND_FIND_USER"
 };
 
 module.exports = commandTypes;

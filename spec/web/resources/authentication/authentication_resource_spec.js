@@ -26,13 +26,13 @@ describe("The authentication resource", function () {
     expect(resource).to.be.defined;
   });
 
-  it("sends the authenticate command on the command bus and responds with some data", function () {
+  it("sends the find user command on the command bus and responds with some data", function () {
     var request = {body: {login: "joe", "password": "joe_password"}};
     var response = {send: sinon.spy()};
 
     resource.postPromise(request, response);
 
-    expect(commandBus.promisePropagation).to.have.been.calledWith("COMMAND_AUTHENTICATE");
+    expect(commandBus.promisePropagation).to.have.been.calledWith("COMMAND_FIND_USER");
     expect(response.send).to.have.been.called;
   });
 });

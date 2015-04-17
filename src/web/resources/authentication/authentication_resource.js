@@ -1,9 +1,10 @@
 "use strict";
 
-var CommandTypes = require("../command_types");
+var CommandTypes = require("../../../commands/command_types");
 var requestValidator = new(require("../request_validator"))();
 
 function AuthenticationResource(dependencies) {
+
   this.postPromise = function (request, response) {
     return requestValidator.promiseIfRequestIsValid({
       schema: authenticationSchema(),
@@ -15,7 +16,7 @@ function AuthenticationResource(dependencies) {
   };
 
   function promiseValidPost(request, response) {
-    var promise = dependencies.commandBus.promisePropagation(CommandTypes.authenticate, request.body);
+    var promise = dependencies.commandBus.promisePropagation(CommandTypes.findUser, request.body);
     return promise.then(function (data) {
       response.send(data);
     });

@@ -1,6 +1,7 @@
 "use strict";
 
-function AuthenticationWarehouse(databaseConnector, collection) {
+function AuthenticationWarehouse(databaseConnector) {
+  var collection = "view_mongouser";
 
   this.promiseToFindForLogin = function (login) {
     var criteria = {"login": login};

@@ -12,7 +12,7 @@ describe("The authentication warehouse", function () {
       promiseToFindOne: sinon.stub()
     };
     var AuthenticationWarehouse = require("../../src/warehouses/authentication_warehouse");
-    warehouse = new AuthenticationWarehouse(databaseConnector, "collection");
+    warehouse = new AuthenticationWarehouse(databaseConnector);
   });
 
   it("must be defined", function () {
@@ -21,7 +21,7 @@ describe("The authentication warehouse", function () {
 
   it("promises to find a user by its login", function () {
     var user = {login: "bob", password: "bobs_password"};
-    databaseConnector.promiseToFindOne.withArgs("collection", {login: "bob"}).returns({
+    databaseConnector.promiseToFindOne.withArgs("view_mongouser", {login: "bob"}).returns({
       then: function (callback) {return callback(user);}
     });
 
@@ -29,7 +29,7 @@ describe("The authentication warehouse", function () {
   });
 
   it("rejects if no user is found for the given login", function () {
-    databaseConnector.promiseToFindOne.withArgs("collection", {login: "bob"}).returns({
+    databaseConnector.promiseToFindOne.withArgs("view_mongouser", {login: "bob"}).returns({
       then: function (callback) {return callback(null);}
     });
 
