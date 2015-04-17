@@ -13,6 +13,17 @@ var configuration = configure({
     env: "PORT",
     type: "integer",
     default: 8087
+  },
+  databaseUrl: {
+    env: "XDCC_SESSIONS_DB_URL",
+    type: "string",
+    default: "mongodb://localhost:27017/xdccapp"
+  },
+  databaseLogLevel: {
+    env: "XDCC_SESSIONS_DB_LOG_LEVEL",
+    type: "string",
+    default: "info",
+    values: ["debug", "info", "error"]
   }
 });
 
