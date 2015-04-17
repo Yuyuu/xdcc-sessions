@@ -1,6 +1,6 @@
 "use strict";
 
-function AuthenticationWarehouse(databaseConnector) {
+function UserWarehouse(databaseConnector) {
   var collection = "view_mongouser";
 
   this.promiseToFindForLogin = function (login) {
@@ -15,4 +15,4 @@ function AuthenticationWarehouse(databaseConnector) {
   };
 }
 
-module.exports = AuthenticationWarehouse;
+module.exports = UserWarehouse;

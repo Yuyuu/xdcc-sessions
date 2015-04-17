@@ -5,13 +5,13 @@ var expect = require("chai").use(require("sinon-chai")).expect;
 
 describe("The find user command", function () {
   var command;
-  var authenticationWarehouse;
+  var userWarehouse;
 
   beforeEach(function () {
-    authenticationWarehouse = new FakeWarehouse();
+    userWarehouse = new FakeWarehouse();
     var CommandFindUser = require("../../../src/commands/user/command_find_user");
     command = new CommandFindUser({
-      warehouses: {authenticationWarehouse: authenticationWarehouse}
+      warehouses: {userWarehouse: userWarehouse}
     });
   });
 
@@ -21,7 +21,7 @@ describe("The find user command", function () {
 
   it("returns the user", function () {
     var users = [{id: "1", login: "joe"}, {id: "2", login: "bob"}];
-    authenticationWarehouse.with(users);
+    userWarehouse.with(users);
 
     expect(command.promiseExecution({login: "bob"})).to.deep.equal({id: "2", login: "bob"});
   });

@@ -3,7 +3,7 @@
 var expect = require("chai").use(require("sinon-chai")).expect;
 var sinon = require("sinon");
 
-describe("The authentication warehouse", function () {
+describe("The user warehouse", function () {
   var warehouse;
   var databaseConnector;
 
@@ -11,8 +11,8 @@ describe("The authentication warehouse", function () {
     databaseConnector = {
       promiseToFindOne: sinon.stub()
     };
-    var AuthenticationWarehouse = require("../../src/warehouses/authentication_warehouse");
-    warehouse = new AuthenticationWarehouse(databaseConnector);
+    var UserWarehouse = require("../../src/warehouses/user_warehouse");
+    warehouse = new UserWarehouse(databaseConnector);
   });
 
   it("must be defined", function () {

@@ -1,9 +1,9 @@
 "use strict";
 
-var AuthenticationWarehouse = require("./authentication_warehouse");
+var UserWarehouse = require("./user_warehouse");
 
 function Warehouses(databaseConnector) {
-  this.authenticationWarehouse = new AuthenticationWarehouse(databaseConnector);
+  this.userWarehouse = new UserWarehouse(databaseConnector);
 }
 
 module.exports = Warehouses;
