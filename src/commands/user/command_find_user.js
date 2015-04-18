@@ -11,6 +11,7 @@ function CommandFindUser(dependencies) {
   this.commandType = CommandTypes.findUser;
 
   this.promiseExecution = function (user) {
+    logger.info("Command find user for", user.login);
     return dependencies.warehouses.userWarehouse.promiseToFindForLogin(user.login);
   };
 }
