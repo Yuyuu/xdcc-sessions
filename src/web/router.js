@@ -9,10 +9,10 @@ function Router(dependencies) {
   this.configure = function (application) {
     var router = new PromiseRouter();
 
-    router.post("/", resources.authenticationResource.postPromise);
+    router.post("/", resources.authenticationResource.promiseToAuthenticate);
 
-    application.get("/", function (resquest, response) {
-      response.status(200).send("Sessions app server.");
+    router.get("/", function (resquest, response) {
+      response.status(200).end();
     });
 
     application.use(router);

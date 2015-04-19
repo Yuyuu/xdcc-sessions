@@ -24,6 +24,11 @@ var configuration = configure({
     type: "string",
     default: "info",
     values: ["debug", "info", "error"]
+  },
+  jwtSecret: {
+    env: "XDCC_SESSIONS_JWT_SECRET",
+    type: "string",
+    default: "development_secret"
   }
 });
 
