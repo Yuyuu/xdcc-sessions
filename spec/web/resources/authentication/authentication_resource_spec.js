@@ -44,7 +44,7 @@ describe("The authentication resource", function () {
     expect(response.send).to.have.been.called;
   });
 
-  it("send back an error code when the authentication is not valid", function () {
+  it("sends back an error code when the authentication is not valid", function () {
     crypto.promiseToCompare.returns({
       then: function (callback) { return callback(false); }
     });
