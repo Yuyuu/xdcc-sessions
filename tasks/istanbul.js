@@ -16,7 +16,7 @@ module.exports = function (grunt) {
   grunt.registerTask("istanbul", function () {
     spawnSync(
       binDir + "/istanbul",
-      ["cover", "-x", excludedPatterns.join(" "), binDir + "/_mocha", "--", "--reporter", "spec", "--recursive", "spec"],
+      ["cover", "-x", excludedPatterns.join(" "), binDir + "/_mocha", "--", "--reporter", "dot", "--recursive", "spec"],
       {stdio: "inherit", encoding: "UTF-8"}
     );
   });
