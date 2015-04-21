@@ -3,6 +3,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var Router = require("./router");
+var ErrorHandler = require("./error_handler");
 var configuration = require("../utils/configuration");
 var logger = require("../utils/log")(__filename);
 var log4js = require("log4js");
@@ -14,6 +15,7 @@ function Server(dependencies) {
   app.use(bodyParser.json());
 
   new Router(dependencies).configure(app);
+  new ErrorHandler().configure(app);
 
   this.start = function () {
     app.listen(port(), function () {

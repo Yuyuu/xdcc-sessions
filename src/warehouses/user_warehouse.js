@@ -1,5 +1,7 @@
 "use strict";
 
+var UserNotFoundError = require("./errors/user_not_found_error");
+
 function UserWarehouse(databaseConnector) {
   var collection = "view_mongouser";
 
@@ -8,7 +10,7 @@ function UserWarehouse(databaseConnector) {
     var promise = databaseConnector.promiseToFindOne(collection, criteria);
     return promise.then(function (user) {
       if (!user) {
-        throw new Error("User not found");
+        throw new UserNotFoundError(login);
       }
       return user;
     });

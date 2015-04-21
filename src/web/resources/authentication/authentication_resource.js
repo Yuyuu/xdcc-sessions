@@ -2,6 +2,7 @@
 
 var CommandTypes = require("../../../commands/command_types");
 var TokenMachine = require("../../../utils/token_machine");
+var ClientError = require("../../errors/client_error");
 var requestValidator = new(require("../request_validator"))();
 
 function AuthenticationResource(dependencies) {
@@ -27,7 +28,7 @@ function AuthenticationResource(dependencies) {
       })
       .then(function (authenticationIsSuccessful) {
         if (!authenticationIsSuccessful) {
-          return response.status(400).send({errors: [{message: "INVALID_LOGIN_OR_PASSWORD"}]});
+          throw new ClientError("INVALID_LOGIN_OR_PASSWORD", 400);
         }
 
         var signedToken = tokenMachine.giveToken();

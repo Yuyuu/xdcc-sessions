@@ -1,5 +1,7 @@
 "use strict";
 
+var ClientError = require("../../../../src/web/errors/client_error");
+
 var expect = require("chai").use(require("sinon-chai")).expect;
 var sinon = require("sinon");
 
@@ -44,7 +46,7 @@ describe("The authentication resource", function () {
     expect(response.send).to.have.been.called;
   });
 
-  it("sends back an error code when the authentication is not valid", function () {
+  it("throws a client error when the authentication is not valid", function () {
     crypto.promiseToCompare.returns({
       then: function (callback) { return callback(false); }
     });
@@ -52,9 +54,6 @@ describe("The authentication resource", function () {
     var response = {send: sinon.spy()};
     response.status = sinon.stub().returns(response);
 
-    resource.promiseToAuthenticate(request, response);
-
-    expect(response.status).to.have.been.calledWith(400);
-    expect(response.send).to.have.been.calledWith({errors: [{message: "INVALID_LOGIN_OR_PASSWORD"}]});
+    expect(resource.promiseToAuthenticate.bind(null, request, response)).to.throw(ClientError, "INVALID_LOGIN_OR_PASSWORD");
   });
 });
