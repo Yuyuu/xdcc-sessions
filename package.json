@@ -18,6 +18,7 @@
   "dependencies": {
     "12factor-config": "^1.0.0",
     "bcrypt": "^0.8.2",
+    "bluebird": "^2.9.24",
     "body-parser": "^1.12.2",
     "express": "4.x",
     "express-promise-router": "^0.0.9",
@@ -28,7 +29,6 @@
     "validate": "^2.1.6"
   },
   "devDependencies": {
-    "bluebird": "^2.9.24",
     "chai": "^2.0.0",
     "glob": "^5.0.5",
     "grunt-contrib-jshint": "^0.11.1",
